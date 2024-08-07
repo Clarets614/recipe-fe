@@ -13,7 +13,7 @@ export class RecipesComponent {
 
   constructor(private recipeservice:RecipeService){}
 
-  recipeList:Recipe = {} as Recipe;
+  recipeList:Recipe[] = [];
 
   ngOnInit(){
     this.CallRecipeAPI();
@@ -22,6 +22,7 @@ export class RecipesComponent {
   CallRecipeAPI(){
     this.recipeservice.getRecipes().subscribe((response) => {
       console.log(response);
+      this.recipeList = response;
     })
   }
 }

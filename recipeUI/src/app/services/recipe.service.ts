@@ -12,7 +12,7 @@ export class RecipeService {
 
   url:string = "https://localhost:7020";
 
-  getRecipes():Observable<Recipe>{
-    return this.http.get<Recipe>(`${this.url}/api/Recipe`);
+  getRecipes():Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(`${this.url}/api/Recipe`);
   }
 }

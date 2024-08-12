@@ -11,7 +11,7 @@ import { Recipe } from '../../models/recipetitle';
 })
 export class RecipesComponent {
 
-  constructor(private recipeservice:RecipeService){}
+  constructor(private recipeservice:RecipeService){};
 
   recipeList:Recipe[] = [];
 

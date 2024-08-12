@@ -15,4 +15,8 @@ export class RecipeService {
   getRecipes():Observable<Recipe[]>{
     return this.http.get<Recipe[]>(`${this.url}/api/Recipe`);
   }
+
+  GetRecipeByID(id:number):Observable<Recipe>{
+    return this.http.get<Recipe>(`${this.url}/api/Recipe/${id}`);
+  }
 }

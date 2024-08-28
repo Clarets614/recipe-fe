@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
 import { Ingredients } from '../../models/ingredients';
+import { RecipesComponent } from '../recipes/recipes.component';
 
 @Component({
   selector: 'app-ingredient',
   standalone: true,
-  imports: [],
+  imports: [RecipesComponent],
   templateUrl: './ingredient.component.html',
   styleUrl: './ingredient.component.css'
 })

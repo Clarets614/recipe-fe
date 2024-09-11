@@ -22,3 +22,17 @@
 
  <input type="text" [(ngModel)]="searchControl" placeholder="Search for a recipe"/>
  <button (click)="search()">Search</button>
+<div>
+    <p>Add Ingredient to Recipe</p>
+    <label>Recipe</label>
+ <select [(ngModel)]="formIng.recipe">
+ <option *ngFor="let r of multirecipeList" [value]="r.title" aria-placeholder="Select Recipe">{{r.title}}</option>
+ </select>
+ <br>
+ <input type="text" [(ngModel)]="formIng.itemname" placeholder="Ingredient Name">
+ <br>
+ <input type="text" [(ngModel)]="formIng.qty" placeholder="quantity">
+ <br>
+ <input type="text" [(ngModel)]="formIng.units" placeholder="measuring unit">
+<button (click)="EmitSubmittedIng()">Add Ingredient</button>
+ </div>

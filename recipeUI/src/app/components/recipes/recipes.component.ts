@@ -19,13 +19,14 @@ export class RecipesComponent {
 
 
   @Output() recipeSelected = new EventEmitter<string>();
-
+  @Output() multirecipesList = new EventEmitter<Recipe[]>;
   constructor(private recipeservice:RecipeService){};
 
 
 
   ngOnInit(){
     this.CallRecipeAPI();
+    this.multirecipesList.emit(this.recipeList);
   }
 
 
@@ -36,7 +37,7 @@ export class RecipesComponent {
     })
   }
 
-  onSelectRecipe(title:string){
-    this.recipeSelected.emit(title);
+  onSelectRecipe(recipe:string){
+    this.recipeSelected.emit(recipe);
   }
 }

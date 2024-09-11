@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Recipe } from '../../models/recipetitle';
 import { Ingredients } from '../../models/ingredients';
@@ -18,62 +18,41 @@ import { CommonModule } from '@angular/common';
 export class RecipeformComponent {
 
    searchControl : string = '';
-
+    multirecipeList : Recipe [] = []
    @Output() recipeSelected = new EventEmitter<Recipe>();
+
+   @Output() submittedIng = new EventEmitter<Ingredients>();
+   @Input() multirecipelist:Recipe [] = [];
+   formIng: Ingredients= {} as Ingredients;
 
    constructor(private _recipeservice: RecipeService, private _ingservice: IngredientService, private cd: ChangeDetectorRef){}
 
+   ngOnInit(){
+    this.CallRecipeAPI()
+   }
    search():void{
-    this._recipeservice.searchRecipe(this.searchControl).subscribe((recipes:Recipe)=>{
+    this._recipeservice.searchRecipe(this.searchControl).subscribe((recipe:Recipe)=>{
       
-      this.recipeSelected.emit(recipes)
+      this.recipeSelected.emit(recipe)
       
     })
    }
  
-
-
-
-  /* searchString :string = '';
-  recipeResult: Recipe | null = null;
-  isLoading:boolean = false;
-  errorMessage: string | null = null;
-
-  formRecipe: Recipe = {} as Recipe;
-  formIngredient: Ingredients = {} as Ingredients;
-
-  pageingredients: Ingredients[] = [];
- */
-
-/* ngOnInit(){
-  this.searchControl.valueChanges.subscribe(value =>{
-    this.searchString = value ?? ''; //this updates the searchString as user types
-  })
-} */
-  
-/*   CallSearchRecipe():void{
-    this.searchString = this.searchControl.value ?? '';
-    console.log('Searching for:', this.searchString);
-
-    this._recipeservice.searchRecipe(this.searchString).subscribe({
-      next: (data: Recipe) => {
-        this.recipeResult = data;
-      },
-      error: (error) => {
-      this.errorMessage = 'Error Fetching Recipe';
-    },
-      complete: () => {
-      console.log('Recipe search completed');
-      this.cd.detectChanges();
-    }
-  });
+EmitSubmittedIng(){
+  let newIngredient: Ingredients = { ...this.formIng};
+  this.submittedIng.emit(newIngredient);
 }
 
-  CallIngSearch():void{
-    
-    this._ingservice.GetIngByRecipeName(this.searchString).subscribe((response:Ingredients[])=>{
-      console.log(response);
-      this.pageingredients = response;
-    })
-  } */
+
+CallRecipeAPI(){
+  this._recipeservice.getRecipes().subscribe((response) => {
+    console.log(response);
+    this.multirecipeList = response;
+  })
+}
+
+
+
+
+
 }

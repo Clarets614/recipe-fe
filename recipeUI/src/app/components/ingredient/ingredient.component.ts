@@ -35,5 +35,9 @@ export class IngredientComponent implements OnChanges {
     })
 
   }
+
+  RemoveIng(id:number){
+    this._ingredientService.DeleteIng(id).subscribe()
+  }
 }
 

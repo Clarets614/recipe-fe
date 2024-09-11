@@ -1,6 +1,16 @@
 <div class="pagecontainer">
-<app-recipes></app-recipes>
-<app-fullrecipe></app-fullrecipe>
-<app-recipeform></app-recipeform>
+    <!--recipe search form at top of page-->
+<app-recipeform (recipeSelected)="onRecipeSelected($event)"></app-recipeform>
+<!-- List of Recipe Titles -->
+ <ul>
+    <li *ngFor="let recipe of recipeList" (click)="onRecipeClick(recipe)">
+        {{recipe.title}}
+
+    </li>
+ </ul>
+
+<!-- Full Recipe Display -->
+<app-fullrecipe [recipe]="selectedRecipe"></app-fullrecipe>
+
 </div>
 

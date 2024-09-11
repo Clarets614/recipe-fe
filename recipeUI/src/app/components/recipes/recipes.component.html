@@ -1,4 +1,4 @@
-
+<!-- 
 <Table><tr>
     <th>Recipes</th>
 </tr>
@@ -12,6 +12,10 @@
     </td>
 </tr>
 }
-</Table>
+</Table> -->
 
-
+<ul>
+    <li *ngFor="let recipe of recipeList" (click)="onSelectRecipe(recipe.title)">
+        {{recipe.id}} - {{recipe.title}}
+    </li>
+</ul>

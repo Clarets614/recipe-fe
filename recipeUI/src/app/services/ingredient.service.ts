@@ -13,7 +13,7 @@ export class IngredientService {
   url:string = "https://localhost:7020";
 
   GetIngByRecipeName(name:string):Observable<Ingredients[]>{
-    return this.http.get<Ingredients[]>(`${this.url}/api/${name}`)
+    return this.http.get<Ingredients[]>(`${this.url}/api/Ingredient/recipe?recipe=${name}`)
   }
   
 }

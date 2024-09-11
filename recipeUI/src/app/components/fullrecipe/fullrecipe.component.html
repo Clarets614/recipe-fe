@@ -1,3 +1,11 @@
-<p>fullrecipe works!</p>
 
-<app-ingredient></app-ingredient>
+<!-- <app-recipes (recipeSelected)="selectedRecipe = $event"></app-recipes>
+<app-ingredient [recipeTitle]="selectedRecipe"></app-ingredient>
+ -->
+
+ <div *ngIf="recipe">
+    <h3>
+        {{recipe.title}}
+    </h3>
+    <app-ingredient [recipeTitle]="recipe.title"></app-ingredient>
+ </div>

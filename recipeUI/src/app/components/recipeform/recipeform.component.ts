@@ -38,6 +38,11 @@ export class RecipeformComponent {
     })
    }
  
+   AddIngItem(){
+    this._ingservice.AddIng(this.formIng).subscribe()
+
+   }
+
 EmitSubmittedIng(){
   let newIngredient: Ingredients = { ...this.formIng};
   this.submittedIng.emit(newIngredient);

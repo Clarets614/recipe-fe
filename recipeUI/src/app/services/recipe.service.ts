@@ -12,8 +12,8 @@ export class RecipeService {
 
   url:string = "https://localhost:7020";
 
-  searchRecipe(query:string):Observable<Recipe>{
-    return this.http.get<Recipe>(`${this.url}/api/Recipe?q=${query}`)
+  searchRecipe(query:string):Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(`${this.url}/api/Recipe?q=${query}`)
 
   }
 

@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
+  
 
 }

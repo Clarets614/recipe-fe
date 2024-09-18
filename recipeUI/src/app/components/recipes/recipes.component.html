@@ -16,6 +16,6 @@
 
 <ul>
     <li *ngFor="let recipe of recipeList" (click)="onSelectRecipe(recipe.title)">
-        {{recipe.id}} - {{recipe.title}}
+            <button class="recipe-button">{{recipe.id}} - {{recipe.title}}</button>
     </li>
 </ul>

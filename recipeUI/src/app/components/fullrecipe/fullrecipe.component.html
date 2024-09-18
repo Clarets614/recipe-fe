@@ -4,8 +4,9 @@
  -->
 
  <div *ngIf="recipe">
+    <p>Your selected recipe is:</p>
     <h3>
-        {{recipe.title}}
+        {{recipe}}
     </h3>
-    <app-ingredient [recipeTitle]="recipe.title"></app-ingredient>
+    <app-ingredient [recipeTitle]="recipe"></app-ingredient>
  </div>

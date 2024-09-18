@@ -19,7 +19,7 @@ export class RecipeformComponent {
 
    searchControl : string = '';
     multirecipeList : Recipe [] = []
-   @Output() recipeSelected = new EventEmitter<Recipe>();
+   @Output() recipeSelected = new EventEmitter<Recipe[]>();
 
    @Output() submittedIng = new EventEmitter<Ingredients>();
    @Input() multirecipelist:Recipe [] = [];
@@ -31,7 +31,7 @@ export class RecipeformComponent {
     this.CallRecipeAPI()
    }
    search():void{
-    this._recipeservice.searchRecipe(this.searchControl).subscribe((recipe:Recipe)=>{
+    this._recipeservice.searchRecipe(this.searchControl).subscribe((recipe:Recipe[])=>{
       
       this.recipeSelected.emit(recipe)
       

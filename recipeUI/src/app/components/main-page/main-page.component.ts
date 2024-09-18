@@ -17,7 +17,7 @@ import { RecipeService } from '../../services/recipe.service';
 export class MainPageComponent {
   
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method
-  selectedRecipe:Recipe | null = null;
+  selectedRecipe:string | null = null;
 
 //constructor to inject the api service
   constructor(private _recipeService: RecipeService){}
@@ -35,11 +35,11 @@ export class MainPageComponent {
   }
 
   
-  onRecipeSelected(recipe:Recipe):void{
+  onRecipeSelected(recipe:string):void{
     this.selectedRecipe = recipe;
   }
 
-  onRecipeClick(recipe:Recipe):void {
+  onRecipeClick(recipe:string):void {
     this.selectedRecipe = recipe;
   }
 

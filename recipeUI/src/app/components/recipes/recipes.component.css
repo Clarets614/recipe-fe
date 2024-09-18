@@ -1,0 +1,18 @@
+.recipe-button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove default border */
+    color: white; /* White text */
+    padding: 10px 20px; /* Add some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it inline */
+    font-size: 16px; /* Adjust the font size */
+    margin: 4px 2px; /* Small margin around the buttons */
+    cursor: pointer; /* Add pointer on hover */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .recipe-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  

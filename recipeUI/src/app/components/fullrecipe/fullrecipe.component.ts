@@ -18,7 +18,7 @@ export class FullrecipeComponent {
 
   selectedRecipe:string | undefined;
 
-  @Input() recipe: Recipe | null = null;
+  @Input() recipe: string | null = null;
 
   constructor(
     private _recipeService: RecipeService, 

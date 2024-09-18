@@ -1,16 +1,33 @@
 <div class="pagecontainer">
     <!--recipe search form at top of page-->
-<app-recipeform (recipeSelected)="onRecipeSelected($event)"></app-recipeform>
+<!-- <app-recipeform (recipeSelected)="onRecipeSelected($event)"></app-recipeform> -->
 <!-- List of Recipe Titles -->
+ <div class="flex-parent-element">
+
+    <div class="flex-child-element">
+ <p>Select a recipe to view</p>
  <ul>
-    <li *ngFor="let recipe of recipeList" (click)="onRecipeClick(recipe)">
-        {{recipe.title}}
+    <li *ngFor="let r of recipeList" (click)="onRecipeClick(r.title)">
+       
+🥄 {{r.title}}
 
     </li>
  </ul>
 
+    </div>
 <!-- Full Recipe Display -->
-<app-fullrecipe [recipe]="selectedRecipe"></app-fullrecipe>
+
+    <div class="flex-child-element">
+
+        <div *ngIf="!selectedRecipe">
+            <h3>Your selected recipe will show here</h3> 
+        </div>
+
+        <app-fullrecipe [recipe]="selectedRecipe"></app-fullrecipe>
+
+    </div>
+
+ </div>
+
 
 </div>
-

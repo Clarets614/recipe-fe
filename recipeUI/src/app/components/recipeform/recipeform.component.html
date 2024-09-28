@@ -1,24 +1,4 @@
 
-<!-- 
-<input type="text" [formControl]="searchControl" />
-<button (click)="CallSearchRecipe()">Search Recipe</button>
-
-<div>
-
-
-
-</div>
-
-<div *ngIf="isLoading">Loading...</div>
-<div *ngIf="errorMessage">{{errorMessage}}</div>
-<div *ngIf="!isLoading && recipeResult?.title">
-    <h3 *ngIf="recipeResult?.title">{{recipeResult?.title}}</h3>
-</div>
-
-<div *ngIf="!recipeResult?.title && !isLoading && !errorMessage">
-    <p>No Recipe Found. Please try another search</p>
-</div>
- -->
 
  <input type="text" [(ngModel)]="searchControl" placeholder="Search for a recipe"/>
  <button (click)="search()">Search</button>
@@ -35,4 +15,18 @@
  <br>
  <input type="text" [(ngModel)]="formIng.units" placeholder="measuring unit">
 <button (click)="EmitSubmittedIng()">Add Ingredient</button>
+ </div>
+
+
+ <div class="pagecontainer">
+
+    <div>
+        <h3>Add Recipe Title</h3>
+        <label for="title">Title</label>
+        <input type="text" id="title" [(ngModel)]="formRec.title" />
+        <button type="submit">Add Recipe Name</button>
+
+    </div>
+
+
  </div>

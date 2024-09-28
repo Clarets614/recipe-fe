@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipetitle';
+import { Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class RecipeService {
 
   GetRecipeByID(id:number):Observable<Recipe>{
     return this.http.get<Recipe>(`${this.url}/api/Recipe/${id}`);
+  }
+
+  AddRecipeName(newRecipe:Recipe):Observable<Recipe>{
+    return this.http.post<Recipe>(`${this.url}/api/Recipe`, newRecipe)
   }
 }

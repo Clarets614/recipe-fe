@@ -24,6 +24,7 @@ export class RecipeformComponent {
    @Output() submittedIng = new EventEmitter<Ingredients>();
    @Input() multirecipelist:Recipe [] = [];
    formIng: Ingredients= {} as Ingredients;
+   formRec: Recipe= {} as Recipe;
 
    constructor(private _recipeservice: RecipeService, private _ingservice: IngredientService, private cd: ChangeDetectorRef){}
 
@@ -41,6 +42,18 @@ export class RecipeformComponent {
    AddIngItem(){
     this._ingservice.AddIng(this.formIng).subscribe()
 
+   }
+   OnSubmitRecipe(rTitle:string){
+    let newRecipe:Recipe = {
+      id:0,
+      title:rTitle
+
+    }
+    this.formRec = newRecipe;
+   }
+
+   AddRecipeItem(){
+    this._recipeservice.AddRecipeName(this.formRec).subscribe();
    }
 
 EmitSubmittedIng(){

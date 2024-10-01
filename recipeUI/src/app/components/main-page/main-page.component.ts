@@ -6,6 +6,8 @@ import { RecipeformComponent } from '../recipeform/recipeform.component';
 import { CommonModule } from '@angular/common';
 import { Recipe } from '../../models/recipetitle';
 import { RecipeService } from '../../services/recipe.service';
+import { IngredientService } from '../../services/ingredient.service';
+import { Ingredients } from '../../models/ingredients';
 
 @Component({
   selector: 'app-main-page',
@@ -18,13 +20,15 @@ export class MainPageComponent {
   
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method
   selectedRecipe:string | null = null;
+  IngredientList:Ingredients[] = [];
 
 //constructor to inject the api service
-  constructor(private _recipeService: RecipeService){}
+  constructor(private _recipeService: RecipeService, private _ingservice: IngredientService){}
 
   //when the page loads this starts the method inside it
   ngOnInit():void{
     this.loadRecipes();
+    this.loadIngredients();
   }
 
   //this method grabs the recipes from the API called in the service and stores the result in the variable 
@@ -34,10 +38,15 @@ export class MainPageComponent {
     })
   }
 
-  
-  onRecipeSelected(recipe:string):void{
-    this.selectedRecipe = recipe;
+  loadIngredients():void {
+    this._ingservice.GetAllIngredients().subscribe((items:Ingredients[])=>{
+      this.IngredientList = items;
+    })  
   }
+  
+  // onRecipeSelected(recipe:string):void{
+  //   this.selectedRecipe = recipe;
+  // }
 
   onRecipeClick(recipe:string):void {
     this.selectedRecipe = recipe;

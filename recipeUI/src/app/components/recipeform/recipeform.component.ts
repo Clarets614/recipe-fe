@@ -19,9 +19,9 @@ export class RecipeformComponent {
 
    searchControl : string = '';
     multirecipeList : Recipe [] = []
-   @Output() recipeSelected = new EventEmitter<Recipe[]>();
+  //  @Output() recipeSelected = new EventEmitter<Recipe[]>();
 
-   @Output() submittedIng = new EventEmitter<Ingredients>();
+  //  @Output() submittedIng = new EventEmitter<Ingredients>();
    @Input() multirecipelist:Recipe [] = [];
    formIng: Ingredients= {} as Ingredients;
    formRec: Recipe= {} as Recipe;
@@ -29,12 +29,14 @@ export class RecipeformComponent {
    constructor(private _recipeservice: RecipeService, private _ingservice: IngredientService, private cd: ChangeDetectorRef){}
 
    ngOnInit(){
-    this.CallRecipeAPI()
+    this.CallRecipeAPI();
+    console.log(this.multirecipeList);
+    this.cd.detectChanges();
    }
    search():void{
     this._recipeservice.searchRecipe(this.searchControl).subscribe((recipe:Recipe[])=>{
       
-      this.recipeSelected.emit(recipe)
+      // this.recipeSelected.emit(recipe)
       
     })
    }
@@ -56,9 +58,18 @@ export class RecipeformComponent {
     this._recipeservice.AddRecipeName(this.formRec).subscribe();
    }
 
-EmitSubmittedIng(){
+// EmitSubmittedIng(){
+//   let newIngredient: Ingredients = { ...this.formIng};
+//   this.submittedIng.emit(newIngredient);
+// }
+
+SubmitIng(){
   let newIngredient: Ingredients = { ...this.formIng};
-  this.submittedIng.emit(newIngredient);
+  this._ingservice.AddIng(newIngredient).subscribe();
+}
+
+ShowFormVariable(){
+  console.log(this.formIng)
 }
 
 

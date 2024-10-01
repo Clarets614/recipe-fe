@@ -13,14 +13,17 @@ export class IngredientService {
   url:string = "https://localhost:7020";
 
   GetIngByRecipeName(name:string):Observable<Ingredients[]>{
-    return this.http.get<Ingredients[]>(`${this.url}/api/Ingredient/recipe?recipe=${name}`)
+    return this.http.get<Ingredients[]>(`${this.url}/api/Ingredient/recipe?recipe=${name}`);
   }
   
   DeleteIng(id:number): Observable<void>{
-    return this.http.delete<void>(`${this.url}/Ingredient/${id}`)
+    return this.http.delete<void>(`${this.url}/api/Ingredient/${id}`);
   }
 
   AddIng(newIngredient: Ingredients): Observable<Ingredients>{
-    return this.http.post<Ingredients>(`${this.url}/Ingredient`, newIngredient)
+    return this.http.post<Ingredients>(`${this.url}/api/Ingredient`, newIngredient);
+  }
+  GetAllIngredients():Observable<Ingredients[]>{
+    return this.http.get<Ingredients[]>(`${this.url}/api/Ingredient`);
   }
 }

@@ -1,9 +1,18 @@
 
 
- <input type="text" [(ngModel)]="searchControl" placeholder="Search for a recipe"/>
- <button (click)="search()">Search</button>
-<div>
-    <p>Add Ingredient to Recipe</p>
+<!--  <input type="text" [(ngModel)]="searchControl" placeholder="Search for a recipe"/>
+ <button (click)="search()">Search</button> -->
+
+<div class="pagecontainer">
+
+    <div>
+        <h3>Add Recipe Title</h3>
+        <label for="title">Title</label>
+        <input type="text" id="title" [(ngModel)]="formRec.title" />
+        <button type="submit">Add Recipe Name</button>
+
+    </div>
+    <p>Add Ingredients to Recipe</p>
     <label>Recipe</label>
  <select name="Select Recipe name" [(ngModel)]="formIng.recipe" class="custom-select">
  <option *ngFor="let r of multirecipeList" [value]="r.title">{{r.title}}</option>
@@ -14,19 +23,9 @@
  <input type="text" [(ngModel)]="formIng.qty" placeholder="quantity">
  <br>
  <input type="text" [(ngModel)]="formIng.units" placeholder="measuring unit">
-<button (click)="EmitSubmittedIng()">Add Ingredient</button>
+<button (click)="ShowFormVariable()">Add Ingredient</button>
+<button (click)="AddIngItem()">Submit Ingredient</button>
  </div>
 
 
- <div class="pagecontainer">
 
-    <div>
-        <h3>Add Recipe Title</h3>
-        <label for="title">Title</label>
-        <input type="text" id="title" [(ngModel)]="formRec.title" />
-        <button type="submit">Add Recipe Name</button>
-
-    </div>
-
-
- </div>

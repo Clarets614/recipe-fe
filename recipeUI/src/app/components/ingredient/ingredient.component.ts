@@ -28,8 +28,10 @@ export class IngredientComponent implements OnChanges {
     }
   }
 
-  emitDelete(){
-    this.delete.emit();
+  emitDelete(item:Ingredients){
+    this.delete.emit(item);
+    this._ingredientService.DeleteIng(item.id).subscribe();
+    this.GetIngbyRecipe(item.recipe);
   }
 
   GetIngbyRecipe(recipeName:string){

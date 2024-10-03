@@ -1,8 +1,23 @@
+body{
+    margin: 0%;
+    font-size: 16px;
+}
+
 .header {
     margin-top: 30px;
-    padding: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 10px;
     background-color: white;
     text-align: center;
+}
+
+.header h1{
+    margin: 0px;
+    padding: 0px;
+    font-size: 6em;
+    font-family: "Qwitcher Grypen", cursive;
+
 }
 
 .search-display{
@@ -10,4 +25,33 @@
     margin: 20px auto;
 }
 
+.navbar ul{
+    list-style-type: none;
+    background-color: rgba(11, 10, 30,);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.navbar li{
+    background-color: rgba(95, 95, 95, 0.755);
+    float: left;
+    margin-top:  5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+
+}
+
+.navbar a:hover{
+    background-color: rgba(11, 10, 30,.25);
+}
 

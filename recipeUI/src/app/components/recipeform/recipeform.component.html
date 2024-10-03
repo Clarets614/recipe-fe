@@ -4,27 +4,45 @@
  <button (click)="search()">Search</button> -->
 
 <div class="pagecontainer">
+<div class="flex-parent-element">
+<div class="flex-child-element">
 
-    <div>
-        <h3>Add Recipe Title</h3>
-        <label for="title">Title</label>
-        <input type="text" id="title" [(ngModel)]="formRec.title" />
-        <button type="submit">Add Recipe Name</button>
 
-    </div>
-    <p>Add Ingredients to Recipe</p>
-    <label>Recipe</label>
+
+    <div class="form">
+        <h4>Create Recipe</h4>
+        <label>If Recipe does not yet exist</label>
+        <input type="text" id="title" [(ngModel)]="formRec.title" placeholder="Recipe Name"/>
+        <button type="submit">Add</button>
+
+
+    <p>Add Ingredients</p>
+<label>Choose Recipe: </label>
+
  <select name="Select Recipe name" [(ngModel)]="formIng.recipe" class="custom-select">
  <option *ngFor="let r of multirecipeList" [value]="r.title">{{r.title}}</option>
- </select>
- <br>
- <input type="text" [(ngModel)]="formIng.itemname" placeholder="Ingredient Name">
+
+</select>
+
  <br>
  <input type="text" [(ngModel)]="formIng.qty" placeholder="quantity">
- <br>
+
  <input type="text" [(ngModel)]="formIng.units" placeholder="measuring unit">
-<button (click)="ShowFormVariable()">Add Ingredient</button>
-<button (click)="AddIngItem()">Submit Ingredient</button>
+ 
+ <input type="text" [(ngModel)]="formIng.itemname" placeholder="Ingredient Name">
+<button (click)="ShowFormVariable()">Add Additional</button>
+<br>
+<button (click)="AddIngItem()">Submit Ingredients</button>
+    </div>
+</div>
+
+
+<div class="flex-child-element">
+<h1>{{formIng.recipe}}</h1>
+<p>{{formIng.qty}} {{formIng.units}} {{formIng.itemname}}</p>
+</div>
+</div>
+
  </div>
 
 

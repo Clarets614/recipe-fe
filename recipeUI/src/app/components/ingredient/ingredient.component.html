@@ -1,5 +1,5 @@
 
 <ul>
-    <li *ngFor="let ingredient of ingredientList"><button (click)="RemoveIng(ingredient.id)">x</button>  {{ingredient.itemname}} {{ingredient.qty}} {{ingredient.units}}</li>
+    <li *ngFor="let ingredient of ingredientList"><button (click)="emitDelete(ingredient)">x</button>  {{ingredient.qty}} {{ingredient.units}} {{ingredient.itemname}}</li>
 
 </ul>

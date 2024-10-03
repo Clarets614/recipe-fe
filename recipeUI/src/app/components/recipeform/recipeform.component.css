@@ -7,3 +7,32 @@
     background-color: white;
     padding: 20px;
 }
+
+
+.flex-parent-element {
+    display: flex;
+}
+
+.flex-child-element{
+    flex: 1;
+    border: 2px solid rgba(11, 11, 30, 0.941);
+    margin: 10px;
+    padding: 20px;
+}
+
+.flex-child-element:first-child{
+    margin-right: 20px;
+}
+
+.form{
+    /* margin: 2em 0; */
+    padding: 1em 2em;
+    /* border: solid 1px #ccc; */
+    border-radius: 6px;
+    min-width: 200px; 
+}
+
+.form label{
+    display: block;
+    margin-top: 1em;
+}

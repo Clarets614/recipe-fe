@@ -2,18 +2,35 @@
     background-color: white;
     padding: 20px;
 }
+.linkslist {
+    display: block;
+}
+
+.linkslist ul{
+    display: block;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.linkslist li{
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: rgba(11, 11, 30);
+}
 
 ul {
     display: block;
     list-style-type:none;
 }
 
-li {
+/* li {
     padding: 5px;
     cursor: pointer;
     font-size: 16px;
-    color: #007BFF;
-}
+    color: rgba(11, 11, 30);
+} */
 
 .flex-parent-element {
     display: flex;
@@ -29,3 +46,4 @@ li {
 .flex-child-element:first-child{
     margin-right: 20px;
 }
+

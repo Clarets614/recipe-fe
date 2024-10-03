@@ -22,7 +22,7 @@ export class RecipeformComponent {
   //  @Output() recipeSelected = new EventEmitter<Recipe[]>();
 
   //  @Output() submittedIng = new EventEmitter<Ingredients>();
-   @Input() multirecipelist:Recipe [] = [];
+  //  @Input() multirecipelist:Recipe [] = [];
    formIng: Ingredients= {} as Ingredients;
    formRec: Recipe= {} as Recipe;
 
@@ -58,11 +58,6 @@ export class RecipeformComponent {
     this._recipeservice.AddRecipeName(this.formRec).subscribe();
    }
 
-// EmitSubmittedIng(){
-//   let newIngredient: Ingredients = { ...this.formIng};
-//   this.submittedIng.emit(newIngredient);
-// }
-
 SubmitIng(){
   let newIngredient: Ingredients = { ...this.formIng};
   this._ingservice.AddIng(newIngredient).subscribe();
@@ -77,6 +72,7 @@ CallRecipeAPI(){
   this._recipeservice.getRecipes().subscribe((response) => {
     console.log(response);
     this.multirecipeList = response;
+    this.cd.detectChanges();
   })
 }
 

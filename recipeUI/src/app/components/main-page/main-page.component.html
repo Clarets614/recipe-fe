@@ -5,7 +5,8 @@
 
     <div class="flex-child-element">
  <p>Select a recipe to view</p>
- <ul>
+ 
+ <ul class="linkslist">
     <li *ngFor="let r of recipeList" (click)="onRecipeClick(r.title)">
        
 🥄 {{r.title}}

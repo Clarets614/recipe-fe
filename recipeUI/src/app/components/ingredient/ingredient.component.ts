@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
 import { Ingredients } from '../../models/ingredients';
 import { RecipesComponent } from '../recipes/recipes.component';
@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 export class IngredientComponent implements OnChanges {
 
   @Input() recipeTitle:string | undefined;
+  @Output() delete = new EventEmitter<Ingredients>
 
    ingredientList:Ingredients[] = []; 
 
@@ -27,6 +28,9 @@ export class IngredientComponent implements OnChanges {
     }
   }
 
+  emitDelete(){
+    this.delete.emit();
+  }
 
   GetIngbyRecipe(recipeName:string){
     this._ingredientService.GetIngByRecipeName(recipeName).subscribe((response)=>{

@@ -15,9 +15,15 @@ body{
 .header h1{
     margin: 0px;
     padding: 0px;
-    font-size: 6em;
-    font-family: "Qwitcher Grypen", cursive;
+    font-size: 4em;
+    font-family: "Annie Use Your Telescope", cursive;
 
+}
+
+.header p{
+    font-family: "Annie Use Your Telescope", cursive;
+    font-weight: bold;
+    font-size: 1.25em;
 }
 
 .search-display{
@@ -55,3 +61,9 @@ body{
     background-color: rgba(11, 10, 30,.25);
 }
 
+.annie-use-your-telescope-regular {
+    font-family: "Annie Use Your Telescope", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

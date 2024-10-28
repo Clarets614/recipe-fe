@@ -15,4 +15,5 @@ import { RecipeformComponent } from './components/recipeform/recipeform.componen
 })
 export class AppComponent {
   title = 'Stock Recipes';
+  assetsPath = 'assets/';
 }

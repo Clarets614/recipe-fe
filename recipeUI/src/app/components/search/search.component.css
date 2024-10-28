@@ -4,6 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    /* background-color:rgba(11, 11, 30, 0.7) ; */
 
     input{
         width: 70%;
@@ -15,7 +16,7 @@
     }
     .search-button{
         width: 5%;
-        background-color:rgba(11, 11, 30, 0.941);
+        background-color:rgba(95, 95, 95, 0.755);
         color: white;
         display: flex;
         justify-content: center;

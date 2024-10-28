@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            
             "outputPath": "dist/recipe-ui",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -24,6 +25,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets" 
               }
             ],
             "styles": [
@@ -96,4 +101,5 @@
   "cli": {
     "analytics": false
   }
+  
 }

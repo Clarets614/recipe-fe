@@ -1,6 +1,8 @@
 .pagecontainer{
+    min-height: 100vh;
     background-color: white;
     padding: 20px;
+    flex: 1;
 }
 .linkslist {
     display: block;
@@ -18,6 +20,9 @@
     cursor: pointer;
     font-size: 16px;
     color: rgba(11, 11, 30);
+    background-color: rgba(11, 11, 30, 0.2);
+    border: solid 1px white;
+    max-width: 90%;
 }
 
 ul {
@@ -25,12 +30,7 @@ ul {
     list-style-type:none;
 }
 
-/* li {
-    padding: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: rgba(11, 11, 30);
-} */
+
 
 .flex-parent-element {
     display: flex;

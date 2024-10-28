@@ -3,7 +3,10 @@
 
 
 body {
-    background-color: rgba(11, 11, 30, 0.941);
+    /* background-color: rgba(11, 11, 30, 0.941); */
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 

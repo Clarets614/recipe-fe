@@ -19,12 +19,10 @@ export class RecipeformComponent {
 
    searchControl : string = '';
     multirecipeList : Recipe [] = []
-  //  @Output() recipeSelected = new EventEmitter<Recipe[]>();
 
-  //  @Output() submittedIng = new EventEmitter<Ingredients>();
-  //  @Input() multirecipelist:Recipe [] = [];
    formIng: Ingredients= {} as Ingredients;
    formRec: Recipe= {} as Recipe;
+   confirmationMessage: string = '';
 
    constructor(private _recipeservice: RecipeService, private _ingservice: IngredientService, private cd: ChangeDetectorRef){}
 
@@ -35,16 +33,18 @@ export class RecipeformComponent {
    }
    search():void{
     this._recipeservice.searchRecipe(this.searchControl).subscribe((recipe:Recipe[])=>{
-      
-      // this.recipeSelected.emit(recipe)
-      
+
     })
    }
  
    AddIngItem(){
-    this._ingservice.AddIng(this.formIng).subscribe()
+    this._ingservice.AddIng(this.formIng).subscribe(()=>{
+      this.confirmationMessage = 'Ingredient added successfully!';
+      this.cd.detectChanges();
+    })
 
    }
+
    OnSubmitRecipe(rTitle:string){
     let newRecipe:Recipe = {
       id:0,

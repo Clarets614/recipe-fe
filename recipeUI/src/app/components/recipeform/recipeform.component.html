@@ -1,8 +1,5 @@
 
 
-<!--  <input type="text" [(ngModel)]="searchControl" placeholder="Search for a recipe"/>
- <button (click)="search()">Search</button> -->
-
 <div class="pagecontainer">
 <div class="flex-parent-element">
 <div class="flex-child-element">
@@ -30,9 +27,9 @@
  <input type="text" [(ngModel)]="formIng.units" placeholder="measuring unit">
  
  <input type="text" [(ngModel)]="formIng.itemname" placeholder="Ingredient Name">
-<button (click)="ShowFormVariable()">Add Additional</button>
+<button type="submit" (click)="ShowFormVariable()">Add Additional</button>
 <br>
-<button (click)="AddIngItem()">Submit Ingredients</button>
+<button type="submit" (click)="AddIngItem()">Submit Ingredients</button>
     </div>
 </div>
 
@@ -40,6 +37,9 @@
 <div class="flex-child-element">
 <h1>{{formIng.recipe}}</h1>
 <p>{{formIng.qty}} {{formIng.units}} {{formIng.itemname}}</p>
+<div *ngIf="confirmationMessage">
+    {{ confirmationMessage }}
+    </div>
 </div>
 </div>
 

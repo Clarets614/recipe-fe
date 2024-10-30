@@ -1,0 +1,19 @@
+<div class="pagecontainer">
+<div>
+    <ul style="align-items: center;">
+        <li *ngFor="let result of displayRecipeDetails">
+           <a [routerLink]="['/', result.id]"> {{ result.title }}</a>
+           <ul>
+            <li>
+            <app-ingredient [recipeTitle]="result.title"></app-ingredient> 
+        
+            </li>
+        </ul>
+        </li>
+    </ul>
+</div>
+<div *ngIf="displayRecipeDetails.length > 0">
+<h4>{{ displayRecipeDetails[0].title }}</h4>
+
+</div>
+</div>

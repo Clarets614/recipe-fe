@@ -77,3 +77,14 @@ body{
     font-style: normal;
   }
   
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.pagecontainer{
+    /* min-height: 50vh; */
+    background-color: white;
+    padding: 20px;
+    flex: 1;
+}

@@ -7,4 +7,9 @@
         {{recipe}}
     </h3>
     <app-ingredient [recipeTitle]="recipe"></app-ingredient>
+
+    <p>@if(displayRecipe){
+        {{displayRecipe.directions}}{{displayRecipe.cooktime}}
+    }
+    </p>
  </div>

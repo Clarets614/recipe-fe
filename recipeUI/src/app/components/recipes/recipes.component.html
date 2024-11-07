@@ -1,21 +1,8 @@
-<!-- 
-<Table><tr>
-    <th>Recipes</th>
-</tr>
-@for (r of recipeList; track $index) {
 
 
-
-<tr>
-    <td>
-    <p>{{r.title}}</p>
-    </td>
-</tr>
-}
-</Table> -->
 
 <ul>
-    <li *ngFor="let recipe of recipeList" (click)="onSelectRecipe(recipe.title)">
+    <li *ngFor="let recipe of recipeList" (click)="onSelectRecipe(recipe)">
             <button class="recipe-button">{{recipe.id}} - {{recipe.title}}</button>
     </li>
 </ul>

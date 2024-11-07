@@ -37,7 +37,7 @@ export class RecipesComponent {
     })
   }
 
-  onSelectRecipe(recipe:string){
-    this.recipeSelected.emit(recipe);
+  onSelectRecipe(recipe:Recipe){
+    this.recipeSelected.emit(recipe.title);
   }
 }

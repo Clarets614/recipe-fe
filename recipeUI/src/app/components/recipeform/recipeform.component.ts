@@ -45,17 +45,20 @@ export class RecipeformComponent {
 
    }
 
-   OnSubmitRecipe(rTitle:string){
-    let newRecipe:Recipe = {
-      id:0,
-      title:rTitle
+  //  OnSubmitRecipe(rTitle:string){
+  //   let newRecipe:Recipe = {
+  //     id:0,
+  //     title:rTitle
 
-    }
-    this.formRec = newRecipe;
-   }
+  //   }
+  //   this.formRec = newRecipe;
+  //  }
+
+
 
    AddRecipeItem(){
-    this._recipeservice.AddRecipeName(this.formRec).subscribe();
+    let newRecipe: Recipe = { ...this.formRec};
+    this._recipeservice.AddRecipeName(newRecipe).subscribe();
    }
 
 SubmitIng(){

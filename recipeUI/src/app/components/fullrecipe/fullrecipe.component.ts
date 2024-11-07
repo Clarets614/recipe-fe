@@ -16,15 +16,33 @@ import { Recipe } from '../../models/recipetitle';
 })
 export class FullrecipeComponent {
 
-  selectedRecipe:string | undefined;
+  selectedRecipe:string| undefined;
+  displayRecipe: Recipe = {} as Recipe;
+  recipeList: Recipe[] = [];
 
   @Input() recipe: string | null = null;
-
+  @Input() directions: string | null = null;
   constructor(
     private _recipeService: RecipeService, 
     private _ingredService: IngredientService
   ) {}
 
+  loadRecipes():void {
+    this._recipeService.getRecipes().subscribe((recipes:Recipe[])=>{
+      this.recipeList = recipes;
+    })
+  }
 
+  findRecipe(recipe: string):void{
+    console.log(recipe);
+    this.recipeList.forEach(r => {
+      if(r.title === recipe){
+        this.displayRecipe = r;
+      }
+      console.log(recipe);
+      
+    });
+
+  }
 
 }

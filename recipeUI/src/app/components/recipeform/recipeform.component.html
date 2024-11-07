@@ -10,7 +10,10 @@
         <h4>Create Recipe</h4>
         <label>If Recipe does not yet exist</label>
         <input type="text" id="title" [(ngModel)]="formRec.title" placeholder="Recipe Name"/>
-        <button type="submit">Add</button>
+        <input type="text" id="directions" [(ngModel)]="formRec.directions" placeholder="Directions" />
+        <input type="text" id="cooktime" [(ngModel)]="formRec.cooktime" placeholder="cooktime" />
+        <button type="submit" (click)="AddRecipeItem()">Add</button>
+
 
 
     <p>Add Ingredients</p>

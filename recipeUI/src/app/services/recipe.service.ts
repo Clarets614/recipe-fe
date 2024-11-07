@@ -29,4 +29,6 @@ export class RecipeService {
   AddRecipeName(newRecipe:Recipe):Observable<Recipe>{
     return this.http.post<Recipe>(`${this.url}/api/Recipe`, newRecipe)
   }
+
+  
 }

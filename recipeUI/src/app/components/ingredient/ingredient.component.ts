@@ -5,6 +5,7 @@ import { RecipesComponent } from '../recipes/recipes.component';
 import { RecipeService } from '../../services/recipe.service';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { Recipe } from '../../models/recipetitle';
 
 @Component({
   selector: 'app-ingredient',

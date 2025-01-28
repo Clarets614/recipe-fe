@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, numberAttribute } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipetitle';
 import { Title } from '@angular/platform-browser';
@@ -31,4 +31,5 @@ export class RecipeService {
   }
 
   
+
 }

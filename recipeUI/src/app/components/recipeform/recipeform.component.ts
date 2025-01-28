@@ -26,6 +26,7 @@ export class RecipeformComponent {
 
    constructor(private _recipeservice: RecipeService, private _ingservice: IngredientService, private cd: ChangeDetectorRef){}
 
+   
    ngOnInit(){
     this.CallRecipeAPI();
     console.log(this.multirecipeList);
@@ -58,7 +59,12 @@ export class RecipeformComponent {
 
    AddRecipeItem(){
     let newRecipe: Recipe = { ...this.formRec};
-    this._recipeservice.AddRecipeName(newRecipe).subscribe();
+    this._recipeservice.AddRecipeName(newRecipe).subscribe((response) => {
+      console.log(newRecipe)
+    });
+    this.confirmationMessage = 'Recipe added successfully!';
+    this.cd.detectChanges();
+    this.CallRecipeAPI();
    }
 
 SubmitIng(){

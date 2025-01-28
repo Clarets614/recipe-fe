@@ -21,6 +21,9 @@ export class MainPageComponent {
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method
   selectedRecipe:string | null = null;
   IngredientList:Ingredients[] = [];
+  Recipe1: Recipe = {} as Recipe;
+  Ing1List: Ingredients[] = [];
+  
 
 //constructor to inject the api service
   constructor(private _recipeService: RecipeService, private _ingservice: IngredientService){}
@@ -44,13 +47,29 @@ export class MainPageComponent {
     })  
   }
   
-  // onRecipeSelected(recipe:string):void{
-  //   this.selectedRecipe = recipe;
-  // }
-
   onRecipeClick(recipe:string):void {
     this.selectedRecipe = recipe;
   }
 
+  // async function fetchRecipe(id:number){
+  //   const rec1 = await fetch(this._recipeService(id).subscribe())
+  // }
 
-}
+//what is this method doing???
+
+  CompleteRecipe(id:number):void{
+    const card = new Set([this.Recipe1, ...this.Ing1List]);
+    this._recipeService.GetRecipeByID(id).subscribe((recipe:Recipe)=>{
+      this.Recipe1 = recipe;
+      this._ingservice.GetIngByRecipeName(recipe.title).subscribe((ing:Ingredients[])=>{
+        this.Ing1List = ing;
+      })
+    })};
+  }
+  // onRecipeSelected(recipe:string):void{
+  //   this.selectedRecipe = recipe;
+  // }
+
+
+
+

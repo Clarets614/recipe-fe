@@ -27,7 +27,11 @@ export class RecipeService {
   }
 
   AddRecipeName(newRecipe:Recipe):Observable<Recipe>{
-    return this.http.post<Recipe>(`${this.url}/api/Recipe`, newRecipe)
+    return this.http.post<Recipe>(`${this.url}/api/Recipe`, newRecipe);
+  }
+
+  DeleteRecipe(id:number):Observable<void>{
+    return this.http.delete<void>(`${this.url}/api/Recipe/${id}`);
   }
 
   

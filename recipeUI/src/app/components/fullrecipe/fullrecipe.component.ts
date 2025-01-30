@@ -39,10 +39,13 @@ export class FullrecipeComponent {
       if(r.title === recipe){
         this.displayRecipe = r;
       }
-      console.log(recipe);
-      
+      console.log(recipe);  
     });
+  }
 
+  deleteRecipe(id:number){
+    this._recipeService.DeleteRecipe(id).subscribe();
+    this.loadRecipes();
   }
 
 }

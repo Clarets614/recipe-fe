@@ -34,7 +34,6 @@ export class FullrecipeComponent {
   }
 
   findRecipe(recipe: string):void{
-    console.log(recipe);
     this.recipeList.forEach(r => {
       if(r.title === recipe){
         this.displayRecipe = r;

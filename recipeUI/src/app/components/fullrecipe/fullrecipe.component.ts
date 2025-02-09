@@ -43,6 +43,7 @@ export class FullrecipeComponent {
   }
 
   deleteRecipe(id:number){
+    console.log(`I want to delete this recipe with ${id}`)
     this._recipeService.DeleteRecipe(id).subscribe();
     this.loadRecipes();
   }

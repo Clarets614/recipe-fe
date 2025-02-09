@@ -14,6 +14,11 @@
         {{displayRecipe.directions}}{{displayRecipe.cooktime}}
     }
     </p>
+    <!-- Broken Section, This is not getting the recipe ID into the delete function -->
+    <div *ngIf="displayRecipe">
+        <p>{{displayRecipe.directions}} -- {{displayRecipe.cooktime}}</p>
+        <p><button (click)="deleteRecipe(displayRecipe.id)">delete recipe</button></p>
+    </div>
     <p *ngIf="displayRecipe != null">{{displayRecipe.directions}}{{displayRecipe.cooktime}}</p>
     <p><button (click)="deleteRecipe(displayRecipe.id)">delete recipe</button></p>
  </div>

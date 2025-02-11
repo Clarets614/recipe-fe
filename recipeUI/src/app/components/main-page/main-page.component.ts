@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FullrecipeComponent } from '../fullrecipe/fullrecipe.component';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { IngredientComponent } from '../ingredient/ingredient.component';
@@ -23,6 +23,7 @@ export class MainPageComponent {
   IngredientList:Ingredients[] = [];
   Recipe1: Recipe = {} as Recipe;
   Ing1List: Ingredients[] = [];
+  @Output() bookmark = new EventEmitter<Recipe>();
   
 
 //constructor to inject the api service
@@ -33,6 +34,11 @@ export class MainPageComponent {
     this.loadRecipes();
     this.loadIngredients();
   }
+
+  emitRecipe(){
+    this.bookmark.emit(this.Recipe1)
+  }
+
 
   //this method grabs the recipes from the API called in the service and stores the result in the variable 
   loadRecipes():void {
@@ -46,11 +52,20 @@ export class MainPageComponent {
       this.IngredientList = items;
     })  
   }
+
+  pickedRecipe(r:Recipe){
+    this.Recipe1 = r
+  }
   
   onRecipeClick(recipe:string):void {
     this.selectedRecipe = recipe;
   }
+  deleteRecipe(){
+    console.log(`I want to delete this recipe with ${this.Recipe1.title}`)
+    this.loadRecipes();
+    this._recipeService.DeleteRecipe(this.Recipe1.id).subscribe();
 
+  }
   // async function fetchRecipe(id:number){
   //   const rec1 = await fetch(this._recipeService(id).subscribe())
   // }

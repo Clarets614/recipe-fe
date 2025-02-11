@@ -7,7 +7,7 @@
  <p>Select a recipe to view</p>
  
  <ul class="linkslist">
-    <li *ngFor="let r of recipeList" (click)="onRecipeClick(r.title)">
+    <li *ngFor="let r of recipeList" (click)="onRecipeClick(r.title)" onclick="pickedRecipe(r)">
        
 🥄 {{r.title}}
 
@@ -21,10 +21,13 @@
 
         <div *ngIf="!selectedRecipe">
             <h3>Your selected recipe will show here</h3> 
+           <p>{{Recipe1.title}}</p>
+           <p>{{Recipe1.cooktime}}</p>
+           <p>{{Recipe1.directions}}</p>
         </div>
 
         <app-fullrecipe [recipe]="selectedRecipe"></app-fullrecipe>
-
+        <p><button (click)="deleteRecipe()">delete</button></p>
 
     </div>
 

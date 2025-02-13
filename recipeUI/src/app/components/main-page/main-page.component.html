@@ -7,7 +7,7 @@
  <p>Select a recipe to view</p>
  
  <ul class="linkslist">
-    <li *ngFor="let r of recipeList" (click)="onRecipeClick(r.title)" onclick="pickedRecipe(r)">
+    <li *ngFor="let r of recipeList" (click)="onRecipeClick(r.title);pickedRecipe(r)">
        
 🥄 {{r.title}}
 

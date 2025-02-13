@@ -61,7 +61,7 @@ export class MainPageComponent {
     this.selectedRecipe = recipe;
   }
   deleteRecipe(){
-    console.log(`I want to delete this recipe with ${this.Recipe1.title}`)
+    console.log(`I want to delete this recipe with ${this.Recipe1.title} and ${this.Recipe1.directions}`)
     this.loadRecipes();
     this._recipeService.DeleteRecipe(this.Recipe1.id).subscribe();
 

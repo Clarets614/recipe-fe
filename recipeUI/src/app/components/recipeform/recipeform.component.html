@@ -12,7 +12,7 @@
         <label>If Recipe does not yet exist</label>
         <input type="text" id="title" [(ngModel)]="formRec.title" placeholder="Recipe Name"/>
         <input type="text" id="directions" [(ngModel)]="formRec.directions" placeholder="Directions" />
-        <input type="text" id="cooktime" [(ngModel)]="formRec.cooktime" placeholder="cooktime" />
+        <input type="text" id="cooktime" [(ngModel)]="formRec.cook_time" placeholder="cooktime" />
         <button type="submit" (click)="AddRecipeItem()">Add</button>
 
 
@@ -44,7 +44,7 @@
 
 <div class="flex-child-element">
 <h1>{{formIng.recipe}}</h1>
-<p>{{formRec.title}} {{formRec.cooktime}} {{formRec.directions}}</p>
+<p>{{formRec.title}} {{formRec.cook_time}} {{formRec.directions}}</p>
 <p>{{formIng.qty}} {{formIng.units}} {{formIng.itemname}}</p>
 <div *ngIf="confirmationMessage">
     {{ confirmationMessage }}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Recipe } from '../../models/recipetitle';
 import { RecipeService } from '../../services/recipe.service';
@@ -16,9 +16,11 @@ import { RecipesComponent } from '../recipes/recipes.component';
 })
 export class RecipeDetailComponent {
   constructor(private activatedRoute: ActivatedRoute, private _recipeService:RecipeService) {}
-
+//Not sure I am going to keep the following variables
   displayRecipeDetails: Recipe[] = [];
   displayIngredient: Ingredients[] =[];
+  @Input() displayRecipe: Recipe = {} as Recipe;
+
 
   ngOnInit(){
     this.activatedRoute.queryParams.subscribe((params)=>{

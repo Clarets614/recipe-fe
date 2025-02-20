@@ -2,5 +2,5 @@ export interface Recipe {
     id:    number;
     title: string;
     directions: string;
-    cooktime: string;
+    cook_time: string;
 }

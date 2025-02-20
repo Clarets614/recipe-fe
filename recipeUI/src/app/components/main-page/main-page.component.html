@@ -14,15 +14,28 @@
     </li>
  </ul>
 
+ <ul class="linkslist">
+    
+@for (r of recipeList; track r.id) {
+   <li (click)="onRecipeClick(r.title); pickedRecipe(r)">
+   
+    <!-- work-in-progress <app-recipe-detail
+    [displayRecipe]="r"
+    (recipeClick)="onRecipeClick($event)"
+    ></app-recipe-detail> -->
+    🥄 {{r.title}}
+    </li>
+} 
+ </ul>
+
     </div>
 <!-- Full Recipe Display -->
 
     <div class="flex-child-element">
-
         <div *ngIf="!selectedRecipe">
             <h3>Your selected recipe will show here</h3> 
            <p>{{Recipe1.title}}</p>
-           <p>{{Recipe1.cooktime}}</p>
+           <p>{{Recipe1.cook_time}}</p>
            <p>{{Recipe1.directions}}</p>
         </div>
 

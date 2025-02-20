@@ -8,11 +8,12 @@ import { Recipe } from '../../models/recipetitle';
 import { RecipeService } from '../../services/recipe.service';
 import { IngredientService } from '../../services/ingredient.service';
 import { Ingredients } from '../../models/ingredients';
+import { RecipeDetailComponent } from "../recipe-detail/recipe-detail.component";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [FullrecipeComponent, RecipesComponent, IngredientComponent, RecipeformComponent, CommonModule],
+  imports: [FullrecipeComponent, RecipesComponent, IngredientComponent, RecipeformComponent, CommonModule, RecipeDetailComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
@@ -23,6 +24,7 @@ export class MainPageComponent {
   IngredientList:Ingredients[] = [];
   Recipe1: Recipe = {} as Recipe;
   Ing1List: Ingredients[] = [];
+  displayRecipe: Recipe = {} as Recipe;
   @Output() bookmark = new EventEmitter<Recipe>();
   
 

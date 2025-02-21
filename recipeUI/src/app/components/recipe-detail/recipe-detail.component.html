@@ -12,10 +12,11 @@
         </li>
     </ul>
 </div>
-<div *ngIf="displayRecipeDetails">
-<h4>{{ displayRecipeDetails[0].title }}</h4>
-<p>Directions here: {{ displayRecipeDetails[0].directions }}</p>
-<p>Cook time is: {{displayRecipeDetails[0].cook_time}}</p>
-
+<div>
+    @for (r of displayRecipeDetails; track $index) {
+        <p>
+            {{r.cook_time || 'No Cook time provided'}}, {{r.directions || 'No Directions provided'}}
+        </p>
+    }
 </div>
 </div>

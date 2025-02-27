@@ -85,11 +85,6 @@ export class MainPageComponent implements OnInit{
     this._recipeService.DeleteRecipe(this.Recipe1.id).subscribe();
 
   }
-  // async function fetchRecipe(id:number){
-  //   const rec1 = await fetch(this._recipeService(id).subscribe())
-  // }
-
-//what is this method doing???
 
   CompleteRecipe(id:number):void{
     const card = new Set([this.Recipe1, ...this.Ing1List]);
@@ -100,9 +95,6 @@ export class MainPageComponent implements OnInit{
       })
     })};
   }
-  // onRecipeSelected(recipe:string):void{
-  //   this.selectedRecipe = recipe;
-  // }
 
 
 

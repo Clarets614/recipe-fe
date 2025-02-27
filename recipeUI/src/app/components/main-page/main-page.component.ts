@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FullrecipeComponent } from '../fullrecipe/fullrecipe.component';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { IngredientComponent } from '../ingredient/ingredient.component';
@@ -9,6 +9,8 @@ import { RecipeService } from '../../services/recipe.service';
 import { IngredientService } from '../../services/ingredient.service';
 import { Ingredients } from '../../models/ingredients';
 import { RecipeDetailComponent } from "../recipe-detail/recipe-detail.component";
+import { RecipeWithIngredients } from '../../models/recipe-with-ingredients';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -17,7 +19,8 @@ import { RecipeDetailComponent } from "../recipe-detail/recipe-detail.component"
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit{
+  recipeWithIngredients: RecipeWithIngredients[] = []
   
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method
   selectedRecipe:string | null = null;
@@ -35,6 +38,19 @@ export class MainPageComponent {
   ngOnInit():void{
     this.loadRecipes();
     this.loadIngredients();
+  }
+
+  //refactoring the way the data is going to be brought into component
+  async loadData(): Promise<void> {
+    try{
+      const recipes = await lastValueFrom(this._recipeService.getRecipes());
+      const ingredients = await lastValueFrom(this._ingservice.GetAllIngredients());
+
+      this.recipeWithIngredients = RecipeWithIngredients.createPairsList(recipes, ingredients);
+
+    } catch (error){
+      console.error('Error loading page data', error);
+    };
   }
 
   emitRecipe(){

@@ -20,6 +20,7 @@ import { lastValueFrom } from 'rxjs';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent implements OnInit{
+  //new variable from our brand spanking new class for refactoring
   recipeWithIngredients: RecipeWithIngredients[] = []
   
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method

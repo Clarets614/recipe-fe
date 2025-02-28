@@ -1,5 +1,16 @@
 
-<ul>
-    <li *ngFor="let ingredient of ingredientList"><button (click)="emitDelete(ingredient)">x</button>  {{ingredient.qty}} {{ingredient.units}} {{ingredient.itemname}}</li>
 
-</ul>
+<table>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    @for (ingredient of ingredientList; track ingredient) {
+        <tr>
+        <td>
+            {{ingredient.qty}} {{ingredient.units}} {{ingredient.itemname}}
+        </td>
+        <td><button (click)="emitDelete(ingredient)"> x </button></td>
+        </tr>
+    }
+</table>

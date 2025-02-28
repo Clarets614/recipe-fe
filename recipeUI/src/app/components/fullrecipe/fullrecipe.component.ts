@@ -21,7 +21,6 @@ export class FullrecipeComponent {
   recipeList: Recipe[] = [];
 
   @Input() recipe: string | null = null;
-  @Input() directions: string | null = null;
   constructor(
     private _recipeService: RecipeService, 
     private _ingredService: IngredientService

@@ -5,24 +5,12 @@
 
     <div class="flex-child-element">
  <p>Select a recipe to view</p>
- 
- <ul class="linkslist">
-    <li *ngFor="let r of recipeList" (click)="onRecipeClick(r.title);pickedRecipe(r)">
-       
-🥄 {{r.title}}
-
-    </li>
- </ul>
 
  <ul class="linkslist">
     
 @for (r of recipeList; track r.id) {
    <li (click)="onRecipeClick(r.title); pickedRecipe(r)">
-   
-    <!-- work-in-progress <app-recipe-detail
-    [displayRecipe]="r"
-    (recipeClick)="onRecipeClick($event)"
-    ></app-recipe-detail> -->
+
     🥄 {{r.title}}
     </li>
 } 
@@ -32,15 +20,16 @@
 <!-- Full Recipe Display -->
 
     <div class="flex-child-element">
+        <!-- This content in the div below only shows if there is NOT a selected recipe
+         essentially, the default state before anything is touched. 
+         could have an example recipe display or just a visual of multiple recipes -->
         <div *ngIf="!selectedRecipe">
             <h3>Your selected recipe will show here</h3> 
-           <p>{{Recipe1.title}}</p>
-           <p>{{Recipe1.cook_time}}</p>
-           <p>{{Recipe1.directions}}</p>
+           <p>one day something random will go here</p>
         </div>
 
         <app-fullrecipe [recipe]="selectedRecipe"></app-fullrecipe>
-        <p><button (click)="deleteRecipe()">delete</button></p>
+       
 
     </div>
 

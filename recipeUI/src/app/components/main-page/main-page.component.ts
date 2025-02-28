@@ -86,14 +86,7 @@ export class MainPageComponent implements OnInit{
 
   }
 
-  CompleteRecipe(id:number):void{
-    const card = new Set([this.Recipe1, ...this.Ing1List]);
-    this._recipeService.GetRecipeByID(id).subscribe((recipe:Recipe)=>{
-      this.Recipe1 = recipe;
-      this._ingservice.GetIngByRecipeName(recipe.title).subscribe((ing:Ingredients[])=>{
-        this.Ing1List = ing;
-      })
-    })};
+
   }
 
 

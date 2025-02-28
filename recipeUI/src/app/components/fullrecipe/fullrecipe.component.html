@@ -1,7 +1,8 @@
 
+@if (recipe) {
 
-
- <div *ngIf="recipe">
+    <div>
+      
     <p>Your selected recipe is:</p>
     <h3>
         {{recipe}}
@@ -10,19 +11,13 @@
     
     <app-ingredient [recipeTitle]="recipe"></app-ingredient>
 
-    <p>@if(displayRecipe != null){
+    <p>
         {{displayRecipe.directions}}{{displayRecipe.cook_time}}
-    }
     </p>
-    <!-- Broken Section, This is not getting the recipe ID into the delete function -->
-    <div *ngIf="displayRecipe">
-        <p>{{displayRecipe.directions}} -- {{displayRecipe.cook_time}}</p>
-        
-    </div>
-    <p *ngIf="displayRecipe != null">{{displayRecipe.directions}}{{displayRecipe.cook_time}}</p>
-    <p><button (click)="deleteRecipe(displayRecipe.id)">delete recipe</button></p>
+  </div> 
+  } 
+ @else {
+    <div>
+    <p>redundant as this if statement is</p>
  </div>
- <div>
-
-    
- </div>
+}

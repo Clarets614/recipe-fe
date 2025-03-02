@@ -39,6 +39,7 @@ export class MainPageComponent implements OnInit{
   ngOnInit():void{
     this.loadRecipes();
     this.loadIngredients();
+    this.loadData();
   }
 
   //refactoring the way the data is going to be brought into component

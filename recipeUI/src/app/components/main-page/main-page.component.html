@@ -6,6 +6,12 @@
     <div class="flex-child-element">
  <p>Select a recipe to view</p>
 
+ <ul>
+    @for (rec of recipeWithIngredients; track rec) {
+       <li>{{rec.recipe.title}}</li> 
+    }
+ </ul>
+
  <ul class="linkslist">
     
 @for (r of recipeList; track r.id) {

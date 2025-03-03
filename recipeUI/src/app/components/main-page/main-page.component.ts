@@ -21,7 +21,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class MainPageComponent implements OnInit{
   //new variable from our brand spanking new class for refactoring
-  recipeWithIngredients: RecipeWithIngredients[] = []
+  recipeWithIngredients: RecipeWithIngredients[] = [];
   
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method
   selectedRecipe:string | null = null;
@@ -29,7 +29,7 @@ export class MainPageComponent implements OnInit{
   Recipe1: Recipe = {} as Recipe;
   Ing1List: Ingredients[] = [];
   displayRecipe: Recipe = {} as Recipe;
-  @Output() bookmark = new EventEmitter<Recipe>();
+  @Output() recipePair = new EventEmitter<Recipe>();
   
 
 //constructor to inject the api service
@@ -56,7 +56,7 @@ export class MainPageComponent implements OnInit{
   }
 
   emitRecipe(){
-    this.bookmark.emit(this.Recipe1)
+    //this.recipePair.emit(this.recipeWithIngredients)
   }
 
 
@@ -75,6 +75,7 @@ export class MainPageComponent implements OnInit{
 
   pickedRecipe(r:Recipe){
     this.Recipe1 = r
+    this.recipePair.emit(r)
   }
   
   onRecipeClick(recipe:string):void {

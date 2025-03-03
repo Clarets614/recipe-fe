@@ -6,6 +6,7 @@ import { RecipeService } from '../../services/recipe.service';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Recipe } from '../../models/recipetitle';
+import { RecipeWithIngredients } from '../../models/recipe-with-ingredients';
 
 @Component({
   selector: 'app-ingredient',
@@ -17,7 +18,8 @@ import { Recipe } from '../../models/recipetitle';
 export class IngredientComponent implements OnChanges {
 
   @Input() recipeTitle:string | undefined;
-  @Output() delete = new EventEmitter<Ingredients>
+  @Output() delete = new EventEmitter<Ingredients>;
+  @Input() recipePair: RecipeWithIngredients[] = [];
 
    ingredientList:Ingredients[] = []; 
 

@@ -1,7 +1,17 @@
 <div class="pagecontainer">
 <div>
     <ul style="align-items: center;">
-        <li *ngFor="let result of displayRecipeDetails">
+        @for (result of displayRecipeDetails; track result) {
+            <a [routerLink]="['/', result.id]"> {{ result.title }}</a>
+           <ul>
+            <li>
+            <app-ingredient [recipeTitle]="result.title"></app-ingredient> 
+        
+            </li>
+        </ul>
+
+        }
+        <!-- <li *ngFor="let result of displayRecipeDetails">
            <a [routerLink]="['/', result.id]"> {{ result.title }}</a>
            <ul>
             <li>
@@ -9,7 +19,7 @@
         
             </li>
         </ul>
-        </li>
+        </li> -->
     </ul>
 </div>
 <div>

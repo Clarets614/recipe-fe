@@ -11,13 +11,13 @@
     
     <app-ingredient [recipeTitle]="recipe"></app-ingredient>
 
-    <p>
-        {{displayRecipe.directions}}{{displayRecipe.cook_time}}
-    </p>
   </div> 
   } 
- @else {
+ @else if(selectedRecPair) {
     <div>
-    <p>redundant as this if statement is</p>
+    <p>{{selectedRecPair.recipe.title}}</p>
+    <p>{{selectedRecPair.recipe.cook_time}}</p>
+    <p>{{selectedRecPair.ingredients}}</p>
+    <p>{{selectedRecPair.recipe.directions}}</p>
  </div>
 }

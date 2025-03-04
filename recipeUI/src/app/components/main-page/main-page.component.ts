@@ -74,8 +74,9 @@ export class MainPageComponent implements OnInit{
   }
 
   pickedRecipe(r:Recipe){
-    this.Recipe1 = r;
-    //this.recipePair.emit(r);
+    //this.Recipe1 = r;
+    let choice = this.recipeWithIngredients.find(i => i.recipe.id == r.id)
+    this.recipePair.emit(choice);
   }
   
   onRecipeClick(recipe:string):void {

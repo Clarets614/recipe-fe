@@ -29,7 +29,7 @@ export class MainPageComponent implements OnInit{
   Recipe1: Recipe = {} as Recipe;
   Ing1List: Ingredients[] = [];
   displayRecipe: Recipe = {} as Recipe;
-  @Output() recipePair = new EventEmitter<RecipeWithIngredients[]>();
+  @Output() recipePair = new EventEmitter<RecipeWithIngredients>();
   
 
 //constructor to inject the api service
@@ -56,7 +56,7 @@ export class MainPageComponent implements OnInit{
   }
 
   emitRecipe(){
-    this.recipePair.emit(this.recipeWithIngredients)
+    this.recipePair.emit(this.recipeWithIngredients[0])
   }
 
 
@@ -74,8 +74,8 @@ export class MainPageComponent implements OnInit{
   }
 
   pickedRecipe(r:Recipe){
-    this.Recipe1 = r
-    //this.recipePair.emit(r)
+    this.Recipe1 = r;
+    //this.recipePair.emit(r);
   }
   
   onRecipeClick(recipe:string):void {

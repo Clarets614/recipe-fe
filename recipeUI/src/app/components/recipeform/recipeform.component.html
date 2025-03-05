@@ -46,9 +46,12 @@
 <h1>{{formIng.recipe}}</h1>
 <p>{{formRec.title}} {{formRec.cook_time}} {{formRec.directions}}</p>
 <p>{{formIng.qty}} {{formIng.units}} {{formIng.itemname}}</p>
-<div *ngIf="confirmationMessage">
+@if(confirmationMessage){
+<div>
     {{ confirmationMessage }}
     </div>
+}
+
 </div>
 </div>
 

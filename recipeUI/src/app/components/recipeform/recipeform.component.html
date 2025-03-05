@@ -1,36 +1,36 @@
 
 
 <div class="pagecontainer">
-<div class="flex-parent-element">
-<div class="flex-child-element">
+    <div class="flex-parent-element">
+        <div class="flex-child-element">
 
 
 
-    <div class="form">
-        <h4>Create Recipe</h4>
-        <hr>
-        <label>If Recipe does not yet exist</label>
-        <input type="text" id="title" [(ngModel)]="formRec.title" placeholder="Recipe Name"/>
-        <input type="text" id="directions" [(ngModel)]="formRec.directions" placeholder="Directions" />
-        <input type="text" id="cooktime" [(ngModel)]="formRec.cook_time" placeholder="cooktime" />
-        <button type="submit" (click)="AddRecipeItem()">Add</button>
+            <div class="form">
+            <h4>Create Recipe</h4>
+            <hr>
+            <label>If Recipe does not yet exist</label>
+            <input type="text" id="title" [(ngModel)]="formRec.title" placeholder="Recipe Name"/>
+            <input type="text" id="directions" [(ngModel)]="formRec.directions" placeholder="Directions" />
+            <input type="text" id="cooktime" [(ngModel)]="formRec.cook_time" placeholder="cooktime" />
+            <button type="submit" (click)="AddRecipeItem()">Add</button>
 
 
 
-    <p>Add Ingredients</p>
-<label>Choose Recipe: </label>
+            <p>Add Ingredients</p>
+            <label>Choose Recipe: </label>
 
- <select name="Select Recipe name" [(ngModel)]="formIng.recipe" class="custom-select">
- <option *ngFor="let r of multirecipeList" [value]="r.title">{{r.title}}</option>
+            <select name="Select Recipe name" [(ngModel)]="formIng.recipe" class="custom-select">
+            <option *ngFor="let r of multirecipeList" [value]="r.title">{{r.title}}</option>
 
-</select>
+            </select>
 
- <br>
- <input type="text" [(ngModel)]="formIng.qty" placeholder="quantity">
+            <br>
+            <input type="text" [(ngModel)]="formIng.qty" placeholder="quantity">
 
- <input type="text" [(ngModel)]="formIng.units" placeholder="measuring unit">
+            <input type="text" [(ngModel)]="formIng.units" placeholder="measuring unit">
  
- <input type="text" [(ngModel)]="formIng.itemname" placeholder="Ingredient Name">
+            <input type="text" [(ngModel)]="formIng.itemname" placeholder="Ingredient Name">
 <button type="submit" (click)="ShowFormVariable()">Add Additional</button>
 <br>
 <button type="submit" (click)="AddIngItem()">Submit Ingredients</button>
@@ -47,7 +47,7 @@
 <p>{{formRec.title}} {{formRec.cook_time}} {{formRec.directions}}</p>
 <p>{{formIng.qty}} {{formIng.units}} {{formIng.itemname}}</p>
 @if(confirmationMessage){
-<div>
+    <div>
     {{ confirmationMessage }}
     </div>
 }

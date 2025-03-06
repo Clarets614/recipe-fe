@@ -16,10 +16,11 @@
  @else if(selectedRecPair) {
     <div>
     <p>{{selectedRecPair.recipe.title}}</p>
-    <p>{{selectedRecPair.recipe.cook_time}}</p>
+    <p>{{selectedRecPair.recipe.cook_time}} || No cook time provided</p>
     <p>{{selectedRecPair.ingredients}}</p>
     @for (ingredient of selectedRecPair.ingredients; track $index) {
        <p>{{ingredient}}</p> 
     }
+    <p>{{selectedRecPair.recipe.directions}} || No directions provided</p>
  </div>
 }

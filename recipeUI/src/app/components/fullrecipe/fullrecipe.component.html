@@ -18,6 +18,8 @@
     <p>{{selectedRecPair.recipe.title}}</p>
     <p>{{selectedRecPair.recipe.cook_time}}</p>
     <p>{{selectedRecPair.ingredients}}</p>
-    <p>{{selectedRecPair.recipe.directions}}</p>
+    @for (ingredient of selectedRecPair.ingredients; track $index) {
+       <p>{{ingredient}}</p> 
+    }
  </div>
 }

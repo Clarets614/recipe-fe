@@ -18,7 +18,7 @@
     <p>{{selectedRecPair.recipe.title}}</p>
     <p>{{selectedRecPair.recipe.cook_time}} || No cook time provided</p>
     <p>{{selectedRecPair.ingredients}}</p>
-    @for (ingredient of selectedRecPair.ingredients; track $index) {
+    @for (ingredient of selectedRecPair.ingredients; track ingredient) {
        <p>{{ingredient}}</p> 
     }
     <p>{{selectedRecPair.recipe.directions}} || No directions provided</p>

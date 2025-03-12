@@ -1,6 +1,21 @@
 
-@if (recipe) {
+@if (selectedRecPair) {
 
+   <div>
+      <p>{{selectedRecPair.recipe.title}}</p>
+      @if(selectedRecPair.recipe.cook_time){
+         <p>{{selectedRecPair.recipe.cook_time}} </p>
+      } 
+      @else {<p>no cook time provided</p>}
+      @for (ingredient of selectedRecPair.ingredients; track ingredient) {
+         <p>{{ingredient.itemname}}</p> 
+      }
+      @if(selectedRecPair.recipe.directions){
+         <p>{{selectedRecPair.recipe.directions}} </p>
+      } 
+      @else {<p>no directions provided</p>}
+   </div>
+<!-- 
     <div>
       
     <p>Your selected recipe is:</p>
@@ -11,8 +26,8 @@
     
     <app-ingredient [recipeTitle]="recipe"></app-ingredient>
 
-  </div> 
-  } 
+  </div>  -->
+  } <!-- 
  @else if(selectedRecPair) {
     <div>
     <p>{{selectedRecPair.recipe.title}}</p>
@@ -23,4 +38,20 @@
     }
     <p>{{selectedRecPair.recipe.directions}} || No directions provided</p>
  </div>
-}
+} -->
+<!--
+saving this in a comment in case I need to revert
+@if (recipe) {
+
+   <div>
+     
+   <p>Your selected recipe is:</p>
+   <h3>
+       {{recipe}}
+   </h3>
+
+   
+   <app-ingredient [recipeTitle]="recipe"></app-ingredient>
+
+ </div> 
+ }  -->

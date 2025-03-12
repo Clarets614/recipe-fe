@@ -24,9 +24,8 @@ export class MainPageComponent implements OnInit{
   recipeWithIngredients: RecipeWithIngredients[] = [];
   
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method
-  selectedRecipe:string | null = null;
+  selectedRecipe:RecipeWithIngredients | null = null;
   IngredientList:Ingredients[] = [];
-  //Ing1List: Ingredients[] = [];
   displayRecipe: Recipe = {} as Recipe;
   @Output() recipePair = new EventEmitter<RecipeWithIngredients>();
   
@@ -54,11 +53,6 @@ export class MainPageComponent implements OnInit{
     };
   }
 
-/*   emitRecipe(){
-    this.recipePair.emit(this.recipeWithIngredients[0])
-  }
- */
-
   //this method grabs the recipes from the API called in the service and stores the result in the variable 
   loadRecipes():void {
     this._recipeService.getRecipes().subscribe((recipes:Recipe[])=>{
@@ -78,7 +72,7 @@ export class MainPageComponent implements OnInit{
   }
   
   onRecipeClick(recipe:string):void {
-    this.selectedRecipe = recipe;
+    this.selectedRecipe = this.recipeWithIngredients.find(r=> r.recipe.title === recipe) || null;
   }
   deleteRecipe(id:number){
     this.loadRecipes();

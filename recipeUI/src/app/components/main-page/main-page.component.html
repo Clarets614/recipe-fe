@@ -6,12 +6,12 @@
     <div class="flex-child-element">
  <p>Select a recipe to view</p>
 
- <ul>
+ <ul class="linkslist">
     @for (rec of recipeWithIngredients; track rec) {
-       <li>{{rec.recipe.title}}</li> 
+       <li (click)="onRecipeClick(rec.recipe.title); pickedRecipe(rec.recipe)">🥄 {{rec.recipe.title}}</li> 
     }
  </ul>
-
+<!-- 
  <ul class="linkslist">
     
 @for (r of recipeList; track r.id) {
@@ -21,7 +21,7 @@
     </li>
 } 
  </ul>
-
+ -->
     </div>
 <!-- Full Recipe Display -->
 

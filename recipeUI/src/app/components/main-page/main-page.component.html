@@ -11,17 +11,7 @@
        <li (click)="onRecipeClick(rec.recipe.title); pickedRecipe(rec.recipe)">🥄 {{rec.recipe.title}}</li> 
     }
  </ul>
-<!-- 
- <ul class="linkslist">
-    
-@for (r of recipeList; track r.id) {
-   <li (click)="onRecipeClick(r.title); pickedRecipe(r)">
 
-    🥄 {{r.title}}
-    </li>
-} 
- </ul>
- -->
     </div>
 <!-- Full Recipe Display -->
 
@@ -34,7 +24,6 @@
            <p>one day something random will go here</p>
         </div>
         <app-fullrecipe [selectedRecPair]="selectedRecipe"></app-fullrecipe>
-        <!-- <app-fullrecipe [recipe]="selectedRecipe"></app-fullrecipe> -->
        
 
     </div>

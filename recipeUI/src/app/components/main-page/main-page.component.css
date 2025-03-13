@@ -17,6 +17,7 @@
 .linkslist li{
     padding: 5px;
     cursor: pointer;
+    user-select: none;
     font-size: 16px;
     color: rgba(11, 11, 30);
     background-color: rgba(11, 11, 30, 0.2);

@@ -25,7 +25,6 @@ export class MainPageComponent implements OnInit{
   
   recipeList: Recipe[] = []; // the variable here will receive the stored values from the loadRecipes method
   selectedRecipe:RecipeWithIngredients | null = null;
-  IngredientList:Ingredients[] = [];
   displayRecipe: Recipe = {} as Recipe;
   @Output() recipePair = new EventEmitter<RecipeWithIngredients>();
   
@@ -36,7 +35,6 @@ export class MainPageComponent implements OnInit{
   //when the page loads this starts the method inside it
   ngOnInit():void{
     this.loadRecipes();
-    this.loadIngredients();
     this.loadData();
   }
 
@@ -60,12 +58,6 @@ export class MainPageComponent implements OnInit{
     })
   }
 
-  loadIngredients():void {
-    this._ingservice.GetAllIngredients().subscribe((items:Ingredients[])=>{
-      this.IngredientList = items;
-    })  
-  }
-
   pickedRecipe(r:Recipe){
     let choice = this.recipeWithIngredients.find(i => i.recipe.id == r.id)
     this.recipePair.emit(choice);
@@ -77,6 +69,7 @@ export class MainPageComponent implements OnInit{
   deleteRecipe(id:number){
     this.loadRecipes();
     this._recipeService.DeleteRecipe(id).subscribe();
+    this.loadData()
   }
 
 

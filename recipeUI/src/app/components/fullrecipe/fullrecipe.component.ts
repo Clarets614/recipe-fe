@@ -51,4 +51,9 @@ export class FullrecipeComponent {
 
   }
 
+  RemoveIng(id:number){
+    this._ingredService.DeleteIng(id).subscribe();
+    this._recipeService.getRecipes();
+  }
+
 }

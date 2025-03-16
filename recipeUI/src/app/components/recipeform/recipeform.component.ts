@@ -46,16 +46,6 @@ export class RecipeformComponent {
 
    }
 
-  //  OnSubmitRecipe(rTitle:string){
-  //   let newRecipe:Recipe = {
-  //     id:0,
-  //     title:rTitle
-
-  //   }
-  //   this.formRec = newRecipe;
-  //  }
-
-
 
    AddRecipeItem(){
     let newRecipe: Recipe = { ...this.formRec};

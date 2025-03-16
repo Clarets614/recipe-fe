@@ -53,6 +53,7 @@ export class RecipeformComponent {
       console.log(newRecipe)
     });
     this.confirmationMessage = 'Recipe added successfully!';
+    this.formRec = {} as Recipe;
     this.cd.detectChanges();
     this.CallRecipeAPI();
    }
@@ -60,6 +61,8 @@ export class RecipeformComponent {
 SubmitIng(){
   let newIngredient: Ingredients = { ...this.formIng};
   this._ingservice.AddIng(newIngredient).subscribe();
+  this.formIng = {} as Ingredients;
+  this.confirmationMessage = 'Ingredient added successfully!';
 }
 
 ShowFormVariable(){

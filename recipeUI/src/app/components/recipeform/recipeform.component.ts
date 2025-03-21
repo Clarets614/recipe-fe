@@ -74,6 +74,7 @@ GetIngredientsByRecipeName(recipeName: string){
   this._ingservice.GetIngByRecipeName(recipeName).subscribe((response) => {
     this.list_of_ingredients = response;
   })
+  this.cd.detectChanges();
   
 }
 

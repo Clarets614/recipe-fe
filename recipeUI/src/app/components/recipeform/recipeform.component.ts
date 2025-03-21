@@ -23,6 +23,7 @@ export class RecipeformComponent {
    formIng: Ingredients= {} as Ingredients;
    formRec: Recipe= {} as Recipe;
    confirmationMessage: string = '';
+   list_of_ingredients: Ingredients[] = [];
 
    constructor(private _recipeservice: RecipeService, private _ingservice: IngredientService, private cd: ChangeDetectorRef){}
 
@@ -67,6 +68,13 @@ SubmitIng(){
 
 ShowFormVariable(){
   console.log(this.formIng)
+}
+
+GetIngredientsByRecipeName(recipeName: string){
+  this._ingservice.GetIngByRecipeName(recipeName).subscribe((response) => {
+    this.list_of_ingredients = response;
+  })
+  
 }
 
 

@@ -31,7 +31,9 @@ export class RecipeformComponent {
    ngOnInit(){
     this.CallRecipeAPI();
     console.log(this.multirecipeList);
+    this.GetIngredientsByRecipeName(this.formRec.title || '');
     this.cd.detectChanges();
+
    }
    search():void{
     this._recipeservice.searchRecipe(this.searchControl).subscribe((recipe:Recipe[])=>{

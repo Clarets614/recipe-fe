@@ -45,7 +45,7 @@
 <div class="flex-child-element">
 <h1>{{formIng.recipe}}</h1>
 @if (formIng.recipe){ 
-    {{GetIngredientsByRecipeName(formRec.title)}}
+  <!--   {{GetIngredientsByRecipeName(formRec.title)}} -->
     @for (ingredient of list_of_ingredients; track ingredient) {
         <p>{{ingredient.qty}} {{ingredient.units}} {{ingredient.itemname}}</p>
     }

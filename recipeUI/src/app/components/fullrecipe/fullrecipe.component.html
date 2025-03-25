@@ -8,7 +8,7 @@
       } 
       @else {<p>no cook time provided</p>}
       @for (ingredient of selectedRecPair.ingredients; track ingredient) {
-         <p>{{ingredient.itemname}}</p> 
+         <p>{{ingredient.itemname}}<button (click)="emitDelete(ingredient)">X</button></p> 
       }
       @if(selectedRecPair.recipe.directions){
          <p>{{selectedRecPair.recipe.directions}} </p>

@@ -39,6 +39,12 @@ export class FullrecipeComponent {
     })
   }
 
+  
+  emitDelete(item:Ingredients){
+    this.delete.emit(item);
+    this._ingredService.DeleteIng(item.id).subscribe();
+  }
+
   findRecipe(recipe: string):void{
     this.recipeList.forEach(r => {
       if(r.title === recipe){

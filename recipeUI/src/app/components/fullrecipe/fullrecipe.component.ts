@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { IngredientComponent } from '../ingredient/ingredient.component';
 import { RecipeService } from '../../services/recipe.service';
@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { Recipe } from '../../models/recipetitle';
 import { RecipeWithIngredients } from '../../models/recipe-with-ingredients';
+import { Ingredients } from '../../models/ingredients';
 
 @Component({
   selector: 'app-fullrecipe',
@@ -24,6 +25,9 @@ export class FullrecipeComponent {
   @Input() selectedRecPair: RecipeWithIngredients | null = null;
 
   @Input() recipe: string | null = null;
+  @Output() delete = new EventEmitter <Ingredients>
+ 
+
   constructor(
     private _recipeService: RecipeService, 
     private _ingredService: IngredientService
